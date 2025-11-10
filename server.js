@@ -26,7 +26,7 @@ app.get('/', async (req, res) => {
     sensitiveProtection: s === 'true',
     storedXss: x === 'true'
   });
-  res.render('layout', { title: 'Home', body });
+  res.render('layout', { title: 'Početna', body });
 });
 
 

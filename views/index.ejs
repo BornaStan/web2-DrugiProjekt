@@ -1,10 +1,10 @@
 <ul>
-  <li><b>Sensitive Data Exposure:</b> plain vs. bcrypt password storage</li>
-  <li><b>Stored XSS:</b> safe (escaped) vs. vulnerable (raw HTML output)</li>
+  <li><b>Sensitive Data Exposure:</b> plain text vs. bcrypt password</li>
+  <li><b>Stored XSS:</b> siguran (escaped) vs. ranjiv (raw HTML)</li>
 </ul>
 
-<p>Current settings:</p>
+<p>Trenutne postavke:</p>
 <ul>
-  <li>Secure password: <b><%= sensitiveProtection ? 'ON' : 'OFF (plain text)' %></b></li>
-  <li>Stored XSS mode: <b><%= storedXss ? 'VULNERABLE' : 'SAFE' %></b></li>
+  <li>Sigurna lozinka: <b><%= sensitiveProtection ? 'ON' : 'OFF (plain text)' %></b></li>
+  <li>Stored XSS: <b><%= storedXss ? 'RANJIV' : 'SIGURAN' %></b></li>
 </ul>
