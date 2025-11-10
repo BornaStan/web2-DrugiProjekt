@@ -1,18 +1,18 @@
 <form method="post" action="/admin/toggle" style="margin-bottom:15px">
   <label>
     <input type="checkbox" name="sensitiveProtection" <%= sensitiveProtection ? 'checked' : '' %> >
-    Enable secure password storage (bcrypt)
+    Omogući sigurnu pohranu lozinke (bcrypt)
   </label><br>
   <label>
     <input type="checkbox" name="storedXss" <%= storedXss ? 'checked' : '' %> >
-    Enable Stored XSS (vulnerable)
+    Omogući Stored XSS (RANJIV)
   </label><br>
-  <button type="submit">Save settings</button>
+  <button type="submit">Spremi postavke</button>
 </form>
 
-<h2>Users</h2>
+<h2>Registrirani korisnici</h2>
 <table>
-  <tr><th>ID</th><th>Username</th><th>Password stored</th><th>Created</th><th></th></tr>
+  <tr><th>ID</th><th>Username</th><th>Password</th><th>Created</th><th></th></tr>
   <% users.forEach(u => { %>
   <tr>
     <td><%= u.id %></td>
