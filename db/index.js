@@ -9,4 +9,7 @@ const pool = new Pool({
   ssl: process.env.NODE_ENV === 'production' ? { rejectUnauthorized: false } : false
 });
 
+await pool.query('SET search_path TO demo_app');
+
+
 module.exports = pool;
