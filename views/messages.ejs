@@ -1,4 +1,4 @@
-<p>Stored XSS mode: <b><%= storedXss ? 'VULNERABLE (raw HTML)' : 'SAFE (escaped output)' %></b></p>
+<p>Stored XSS: <b><%= storedXss ? 'RANJIV (raw HTML)' : 'SIGURAN (escaped)' %></b></p>
 
 <% messages.forEach(m => { %>
   <article style="border:1px solid #ccc;padding:8px;margin-bottom:8px">
@@ -11,7 +11,7 @@
     <small><%= m.created_at %></small>
     <form method="post" action="/messages/delete" style="display:inline">
       <input type="hidden" name="id" value="<%= m.id %>">
-      <button type="submit">Delete</button>
+      <button type="submit">Obriši</button>
     </form>
   </article>
 <% }) %>
