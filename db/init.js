@@ -1,6 +1,9 @@
 const pool = require('./index');
 
 async function initDb() {
+
+  await pool.query('SET search_path TO demo_app');
+
   await pool.query(`
     CREATE TABLE IF NOT EXISTS settings (
       key TEXT PRIMARY KEY,
