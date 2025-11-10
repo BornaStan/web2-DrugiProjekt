@@ -19,7 +19,6 @@ app.set('views', path.join(__dirname, 'views'));
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static(path.join(__dirname, 'public')));
 
-// Home page
 app.get('/', async (req, res) => {
   const s = await getSetting('sensitive_protection');
   const x = await getSetting('stored_xss');
@@ -30,12 +29,12 @@ app.get('/', async (req, res) => {
   res.render('layout', { title: 'Home', body });
 });
 
-// Route groups
+
 app.use('/', userRoutes);
 app.use('/admin', adminRoutes);
 app.use('/', xssRoutes);
 
-// Start server
+
 (async () => {
   await initDb();
   app.listen(PORT, () =>

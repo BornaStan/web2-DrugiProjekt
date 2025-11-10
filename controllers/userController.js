@@ -1,16 +1,7 @@
 const { getSetting, createUser } = require('../db/queries');
 const renderPartial = require('../utils/render');
+const escapeHtml = require('../utils/escapeHtml');
 
-
-function escapeHtml(t) {
-  if (!t) return '';
-  return String(t)
-    .replace(/&/g,'&amp;')
-    .replace(/</g,'&lt;')
-    .replace(/>/g,'&gt;')
-    .replace(/"/g,'&quot;')
-    .replace(/'/g,'&#39;');
-}
 
 exports.registerForm = async (req, res) => {
   res.render('layout', {

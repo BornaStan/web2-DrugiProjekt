@@ -1,4 +1,3 @@
-// db/init.js
 const pool = require('./index');
 
 async function initDb() {
@@ -36,7 +35,6 @@ async function initDb() {
     );
   `);
 
-  // Default settings
   const defaults = {
     sensitive_protection: 'true',
     stored_xss: 'false'

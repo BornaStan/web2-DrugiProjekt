@@ -1,8 +1,6 @@
-// db/queries.js
 const pool = require('./index');
 const bcrypt = require('bcrypt');
 
-// SETTINGS
 async function getSetting(key) {
   const r = await pool.query('SELECT value FROM settings WHERE key = $1', [key]);
   return r.rowCount ? r.rows[0].value : null;
@@ -16,7 +14,6 @@ async function setSetting(key, value) {
   `, [key, value]);
 }
 
-// USERS
 async function createUser(username, password, sensitiveProtection) {
   if (sensitiveProtection) {
     const hash = await bcrypt.hash(password, 10);
@@ -41,7 +38,6 @@ async function deleteUser(id) {
   await pool.query('DELETE FROM users WHERE id = $1', [id]);
 }
 
-// MESSAGES (for XSS demonstration)
 async function createMessage(title, body) {
   await pool.query('INSERT INTO messages (title, body) VALUES ($1, $2)', [title, body]);
 }
@@ -53,7 +49,6 @@ async function deleteMessage(id) {
   await pool.query('DELETE FROM messages WHERE id = $1', [id]);
 }
 
-// LOGS
 async function logXss(note) {
   await pool.query('INSERT INTO xss_logs (note) VALUES ($1)', [note]);
 }

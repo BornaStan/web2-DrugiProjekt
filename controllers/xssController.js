@@ -1,5 +1,6 @@
 const { getSetting, createMessage, getMessages, logXss, deleteMessage } = require('../db/queries');
 const renderPartial = require('../utils/render');
+const escapeHtml = require('../utils/escapeHtml');
 
 
 exports.showMessages = async (req, res) => {
@@ -7,7 +8,7 @@ exports.showMessages = async (req, res) => {
   const messages = await getMessages();
   res.render('layout', {
     title: 'Messages',
-    body: await renderPartial('messages', { messages, storedXss })
+    body: await renderPartial('messages', { messages, storedXss, escapeHtml })
   });
 };
 
