@@ -7,14 +7,14 @@ exports.showMessages = async (req, res) => {
   const storedXss = (await getSetting('stored_xss')) === 'true';
   const messages = await getMessages();
   res.render('layout', {
-    title: 'Messages',
+    title: 'Poruke',
     body: await renderPartial('messages', { messages, storedXss, escapeHtml })
   });
 };
 
 exports.newMessageForm = async (req, res) => {
   res.render('layout', {
-    title: 'New Message',
+    title: 'Nova poruka',
     body: await renderPartial('new_message', {})
   });
 };
