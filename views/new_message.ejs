@@ -1,0 +1,8 @@
+<form method="post" action="/messages">
+  <p><label>Title: <input name="title"></label></p>
+  <p><label>Message:</label></p>
+  <textarea name="body" rows="5" cols="80"></textarea><br>
+  <button type="submit">Save</button>
+</form>
+
+<p class="muted">If Stored XSS is ON, message body will be stored and rendered as raw HTML.</p>

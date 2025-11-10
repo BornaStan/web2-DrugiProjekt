@@ -1,0 +1,46 @@
+<form method="post" action="/admin/toggle" style="margin-bottom:15px">
+  <label>
+    <input type="checkbox" name="sensitiveProtection" <%= sensitiveProtection ? 'checked' : '' %> >
+    Enable secure password storage (bcrypt)
+  </label><br>
+  <label>
+    <input type="checkbox" name="storedXss" <%= storedXss ? 'checked' : '' %> >
+    Enable Stored XSS (vulnerable)
+  </label><br>
+  <button type="submit">Save settings</button>
+</form>
+
+<h2>Users</h2>
+<table>
+  <tr><th>ID</th><th>Username</th><th>Password stored</th><th>Created</th><th></th></tr>
+  <% users.forEach(u => { %>
+  <tr>
+    <td><%= u.id %></td>
+    <td><%= u.username %></td>
+    <td><%= u.password_plain || u.password_hash || '' %></td>
+    <td><%= u.created_at %></td>
+    <td>
+      <form method="post" action="/admin/delete-user" style="display:inline">
+        <input type="hidden" name="id" value="<%= u.id %>">
+        <button type="submit">Delete</button>
+      </form>
+    </td>
+  </tr>
+  <% }) %>
+</table>
+
+<h2>XSS Logs</h2>
+<table>
+  <tr><th>ID</th><th>Note</th><th>Created</th><th></th></tr>
+  <% logs.forEach(l => { %>
+    <tr>
+      <td><%= l.id %></td><td><%= l.note %></td><td><%= l.created_at %></td>
+      <td>
+        <form method="post" action="/admin/delete-log" style="display:inline;">
+          <input type="hidden" name="id" value="<%= l.id %>">
+          <button type="submit">Delete</button>
+        </form>
+      </td>
+    </tr>
+  <% }) %>
+</table>

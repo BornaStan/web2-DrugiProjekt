@@ -1,0 +1,12 @@
+<p>Welcome to the <b>Security Demo App</b>.</p>
+
+<ul>
+  <li><b>Sensitive Data Exposure:</b> plain vs. bcrypt password storage</li>
+  <li><b>Stored XSS:</b> safe (escaped) vs. vulnerable (raw HTML output)</li>
+</ul>
+
+<p>Current settings:</p>
+<ul>
+  <li>Secure password storage: <b><%= sensitiveProtection ? 'ON (bcrypt)' : 'OFF (plain text)' %></b></li>
+  <li>Stored XSS mode: <b><%= storedXss ? 'VULNERABLE' : 'SAFE' %></b></li>
+</ul>
